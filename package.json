@@ -1,0 +1,36 @@
+{
+  "name": "seasoned-with-love",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trenette12/seasoned-with-love.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trenette12/seasoned-with-love/issues"
+  },
+  "homepage": "https://github.com/trenette12/seasoned-with-love#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "node-sass": "^4.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
+    "file-loader": "^0.11.2",
+    "font-awesome": "^4.7.0",
+    "style-loader": "^0.18.2"
+  }
+}
