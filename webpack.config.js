@@ -1,11 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './assets/js/app.js',
+    entry: ['./assets/js/app.js', './assets/sass/styles.scss'],
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
@@ -27,7 +28,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: "css-loader"
+                    })              
             },
             {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -38,18 +42,18 @@ module.exports = {
                 use: 'file-loader'
             },
             {
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
+                test: /\.(sass|scss)$/,
+                use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
                 }
-            ]
-            }
+            
         ]
     },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: '../assets/css/styles.css',
+            allChunks: true
+        })
+    ],
     stats: {
         colors: true
     },
